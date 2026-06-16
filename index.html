@@ -152,10 +152,10 @@ function init(){
     el.className='card';
     el.style.background=c.hex;
     if(c.hex==='#EEECE6')el.style.border='1.5px solid #d8d6d0';
-    el.addEventListener('mousedown',()=>el.classList.add('pressing'));
-    el.addEventListener('touchstart',()=>el.classList.add('pressing'),{passive:true});
-    el.addEventListener('mouseup',()=>{el.classList.remove('pressing');toggleCard(i,el)});
-    el.addEventListener('touchend',()=>{el.classList.remove('pressing');toggleCard(i,el)},{passive:true});
+    el.addEventListener('pointerdown',()=>el.classList.add('pressing'));
+    el.addEventListener('pointerup',()=>el.classList.remove('pressing'));
+    el.addEventListener('pointercancel',()=>el.classList.remove('pressing'));
+    el.addEventListener('click',()=>toggleCard(i,el));
     grid.appendChild(el);
   });
 }
@@ -178,10 +178,10 @@ document.getElementById('select-btn').addEventListener('click',()=>{
     el.className='final-card';
     el.style.background=c.hex;
     if(c.hex==='#EEECE6')el.style.border='1.5px solid #d8d6d0';
-    el.addEventListener('mousedown',()=>el.classList.add('pressing'));
-    el.addEventListener('touchstart',()=>el.classList.add('pressing'),{passive:true});
-    el.addEventListener('mouseup',()=>{el.classList.remove('pressing');showResult(c)});
-    el.addEventListener('touchend',()=>{el.classList.remove('pressing');showResult(c)},{passive:true});
+    el.addEventListener('pointerdown',()=>el.classList.add('pressing'));
+    el.addEventListener('pointerup',()=>el.classList.remove('pressing'));
+    el.addEventListener('pointercancel',()=>el.classList.remove('pressing'));
+    el.addEventListener('click',()=>showResult(c));
     fg.appendChild(el);
   });
 });
